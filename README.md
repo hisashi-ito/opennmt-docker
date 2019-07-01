@@ -7,7 +7,8 @@ http://opennmt.net/
 * 文字列正規化処理
 擬似データの事前学習に基づくencoder-decoder型 日本語崩れ表記正規化  
 https://www.anlp.jp/proceedings/annual_meeting/2017/pdf_dir/P10-5.pdf
-* 方言変換処理
+* 方言変換処理  
+https://www.anlp.jp/proceedings/annual_meeting/2018/pdf_dir/B2-4.pdf  
 
 ## 環境構築
 事前 docker, nvidiaドライバ, cuda, cuDNN, nvidia-docker がinstallされていることを前提とする。
