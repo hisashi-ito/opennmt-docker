@@ -42,3 +42,8 @@ RUN ./bin/install-mecab-ipadic-neologd -n -y
 
 # pip3
 RUN pip3 install mojimoji mecab-python3==0.7 nltk cld2-cffi
+
+# ファイルの移動
+COPY data /OpenNMT/dat/
+COPY lib /OpenNMT/lib/
+COPY bin //OpenNMT/bin/
