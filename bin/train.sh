@@ -3,7 +3,7 @@
 # 【train】
 #
 VOC_SIZE=50000
-EPOCH=50
+EPOCH=30
 logs="./train.log"
 
 for pat in "j2e" "e2j"
@@ -15,7 +15,7 @@ do
        -preprocess_pthreads 8 >> ${logs}
     
     # 学習
-    # GNMT の2層の翻訳モデルで学習 (2GPUで学習)
+    # GNMT の4層の翻訳モデルで学習 (2GPUで学習)
     mkdir -p ${pat}
     th train.lua -data /data/corpus/${pat}/${pat}-train.t7 \
        -save_model ./${pat}/${pat}-model -gpuid 1 2 \
