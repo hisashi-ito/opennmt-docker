@@ -52,4 +52,4 @@ RUN pip3 install mojimoji mecab-python3==0.7 nltk==3.3
 # ファイルの移動
 COPY data /OpenNMT/dat/
 COPY lib /OpenNMT/lib/
-COPY bin //OpenNMT/bin/
+COPY bin /OpenNMT/bin/
