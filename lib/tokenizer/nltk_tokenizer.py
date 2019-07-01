@@ -12,7 +12,7 @@
 #       >>> nltk.download('punkt')
 #
 import nltk
-from . base_tokenizer import BaseTokenizer
+from base_tokenizer import BaseTokenizer
 
 class NltkTokenizer(BaseTokenizer):
     def __init__(self):

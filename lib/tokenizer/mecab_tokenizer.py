@@ -11,7 +11,7 @@ import os
 import configparser
 import MeCab
 from os import path
-from . base_tokenizer import BaseTokenizer
+from base_tokenizer import BaseTokenizer
 
 class MecabTokenizer(BaseTokenizer):
     def __init__(self):

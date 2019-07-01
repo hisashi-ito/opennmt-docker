@@ -5,10 +5,13 @@ FROM opennmt/opennmt
 LABEL maintainer="username"
 
 # 社内ネットワークなどプロキシを利用する場合は以下のコメントアウトを外す
-# ENV https_proxy http://10.0.0.47:10000/
-# ENV http_proxy http://10.0.0.47:10000/
+ENV https_proxy http://10.0.0.47:10000/
+ENV http_proxy http://10.0.0.47:10000/
 
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    bzip2 \
     swig \
     nkf	\	
     locales \
@@ -16,8 +19,10 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
     vim \
     emacs \
     tree \
-    git
-
+    git \
+    curl \
+    file
+    
 RUN locale-gen ja_JP.UTF-8
 RUN echo "export LANG=ja_JP.UTF-8" >> ~/.bashrc
 RUN apt-get install -y language-pack-ja
@@ -41,7 +46,8 @@ WORKDIR /opt/mecab-ipadic-neologd
 RUN ./bin/install-mecab-ipadic-neologd -n -y
 
 # pip3
-RUN pip3 install mojimoji mecab-python3==0.7 nltk cld2-cffi
+RUN pip3 install --upgrade pip
+RUN pip3 install mojimoji mecab-python3==0.7 nltk==3.3
 
 # ファイルの移動
 COPY data /OpenNMT/dat/

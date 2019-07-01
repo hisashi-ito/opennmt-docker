@@ -11,19 +11,25 @@
 import sys
 import argparse
 import logging
+from mecab_tokenizer import MecabTokenizer
+from nltk_tokenizer import NltkTokenizer
 
-class Tokenizer(object)
+class Tokenizer(object):
     def __init__(self, logger, lang):
         self.logger = logger
         self.lang = lang
+        self.token = None
         # tokenizerを作成
-        if self.lang == "ja"
+        if self.lang == "ja":
             self.token = MecabTokenizer()
-        elif self.lang == "en"
+        elif self.lang == "en":
             self.token = NltkTokenizer()
         else:
             self.logger.fail("langの設定が不正です:{}".format(self.lang))
-
+            
+    def tokenize(self, text):
+        return self.token.tokenize(text)
+            
 def main():
     logging.basicConfig(level=logging.INFO,format='[%(asctime)s] %(levelname)s -- : %(message)s')
     logger = logging.getLogger()
@@ -46,7 +52,7 @@ def main():
         try:
             text = line.rstrip()
             forms = t.tokenize(text)
-            o.write(" ".join(forms))
+            o.write(" ".join(forms)+"\n")
         except ValueError:
             continue
     o.close
