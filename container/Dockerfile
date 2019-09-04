@@ -4,6 +4,9 @@
 FROM opennmt/opennmt
 LABEL maintainer="username"
 
+ENV https_proxy http://10.0.0.47:10000/
+ENV http_proxy http://10.0.0.47:10000/
+
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
     gcc \
     g++ \
